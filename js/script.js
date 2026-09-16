@@ -20,6 +20,16 @@
     });
   }
 
+      document.addEventListener("click", function(e){
+      var clickedInsideNav = nav.contains(e.target);
+      var clickedToggle = toggle.contains(e.target);
+      if(nav.classList.contains("open") && !clickedInsideNav && !clickedToggle){
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded","false");
+        document.body.style.overflow = "";
+      }
+    });
+    
   /* Scroll reveal */
   var revealEls = document.querySelectorAll(".reveal");
   if("IntersectionObserver" in window && revealEls.length){
